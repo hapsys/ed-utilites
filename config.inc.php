@@ -24,9 +24,9 @@ define("TWIG_CACHE", ROOT.'cache/');
 define("TMP", ROOT."tmp/");
 
 
-define('DB_HOST', '127.8.105.2');
-define('DB_USER', 'adminqPRCwpW');
-define('DB_PASSWORD', 'vf1rG8cNHKy4');
+define('DB_HOST', $OPENSHIFT_MYSQL_DB_HOST);
+define('DB_USER', $OPENSHIFT_MYSQL_DB_USER);
+define('DB_PASSWORD', $OPENSHIFT_MYSQL_DB_PASSWORD);
 define('DB_DATABASE', 'edu');
 
 define('SMTP_HOST', 'localhost');
