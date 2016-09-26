@@ -1,0 +1,28 @@
+AddDefaultCharset utf-8
+
+RewriteEngine On
+#RewriteOptions MaxRedirects=5;
+
+RewriteBase /  
+
+RewriteRule ^\.		$0		[L,F]
+
+RewriteRule ^(.+\.gif)                  $1                      [L,NC]  
+RewriteRule ^(.+\.jpg)                  $1                      [L,NC]  
+RewriteRule ^(.+\.htc)                  $1                      [L,NC]  
+RewriteRule ^(.+\.css)                  $1                      [L,NC]  
+RewriteRule ^(.+\.swf)                  $1                      [L,NC]  
+RewriteRule ^(.+\.png)                  $1                      [L,NC]  
+RewriteRule ^(.+\.pdf)                  $1                      [L,NC]  
+RewriteRule ^(.+\.doc)                  $1                      [L,NC]  
+RewriteRule ^(.+\.txt)                  $1                      [L,NC]  
+RewriteRule ^(.+\.rtf)                  $1                      [L,NC]  
+RewriteRule ^(.+\.mp3)                  $1                      [L,NC]  
+RewriteRule ^(.+\.html)                 $1                      [L,NC]  
+RewriteRule ^(.+\.xsl)                  $1                      [L,NC]  
+RewriteRule ^(.+\.js)                   $1                      [L,NC]
+RewriteRule ^(.+\.zip)                   $1                      [L,NC]
+RewriteRule ^(phpinfo\.php)    			$1                 		[L]
+RewriteRule ^(hg\.php)    			$1                 		[L]
+
+RewriteRule ^ init.php [L]
