@@ -24,10 +24,10 @@ define("TWIG_CACHE", ROOT.'cache/');
 define("TMP", ROOT."tmp/");
 
 
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASSWORD', 'root');
-define('DB_DATABASE', 'ed-tourney');
+define('DB_HOST', '127.8.105.2');
+define('DB_USER', 'adminqPRCwpW');
+define('DB_PASSWORD', 'vf1rG8cNHKy4');
+define('DB_DATABASE', 'edu');
 
 define('SMTP_HOST', 'localhost');
 define('SMTP_PORT', '25');
