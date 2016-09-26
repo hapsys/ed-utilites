@@ -22,7 +22,6 @@ RewriteRule ^(.+\.html)                 $1                      [L,NC]
 RewriteRule ^(.+\.xsl)                  $1                      [L,NC]  
 RewriteRule ^(.+\.js)                   $1                      [L,NC]
 RewriteRule ^(.+\.zip)                   $1                      [L,NC]
-RewriteRule ^(phpinfo\.php)    			$1                 		[L]
-RewriteRule ^(hg\.php)    			$1                 		[L]
+#RewriteRule ^(phpinfo\.php)    			$1                 		[L]
 
 RewriteRule ^ init.php [L]

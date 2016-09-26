@@ -1,9 +1,10 @@
 <?php
 error_reporting(E_ALL);
+ini_set('display_errors', 1);
 //
 //
 define("ROOT", __DIR__."/");
-define("CMS", "/Projects/php/c3s/fw/");
+define("CMS", ROOT."../build-dependencies/c3s/");
 
 define("CLASSPATH", ROOT."classes/;".CMS.'vendor/');
 //
