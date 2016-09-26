@@ -2,9 +2,9 @@
 <sites-info>
 	<site name="default site" language="suffix">
 		<config>config.xml</config>
-		<alias>edt.loc</alias>
+		<alias>edu.loc</alias>
 		<alias>ed-tourney.ddns.net</alias>
-		<alias>ed-tourney.rhcloud.com</alias>
+		<alias>edu-c3s.rhcloud.com</alias>
 		<language ref="en"/>
 		<language ref="ru" default="true"/>
 		<!--
