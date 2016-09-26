@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form method="post" action="/post/">
+	<header>
+	<![CDATA[
+		<p>Не зарегистрированы? Пройдите <a href="">регистрацию</a></p>
+	]]>
+	</header>
+	<field name="email" type="text" minlength="1">
+		<label>Эл.почта</label>
+	</field>
+	<field name="password" type="password" minlength="6">
+		<label>Пароль</label>
+	</field>
+	<info type="ok">
+		Информация успешно обновлена
+	</info>
+</form>

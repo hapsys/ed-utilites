@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<web-inf>
+	<substitude>
+		<target>Dispatcher</target>
+		<source>c3s\dispatcher\Dispatcher</source>
+	</substitude>
+	<substitude>
+		<target>ActionMap</target>
+		<source>c3s\actions\xml\XMLActionMap</source>
+	</substitude>
+	<substitude>
+		<target>Redirector</target>
+		<source>c3s\redirect\Redirector</source>
+	</substitude>
+</web-inf>

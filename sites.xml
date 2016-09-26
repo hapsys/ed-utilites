@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sites-info>
+	<site name="default site" language="suffix">
+		<config>config.xml</config>
+		<alias>edt.loc</alias>
+		<alias>ed-tourney.ddns.net</alias>
+		<alias>ed-tourney.rhcloud.com</alias>
+		<language ref="en"/>
+		<language ref="ru" default="true"/>
+		<!--
+		<language ref="jp"/>
+		 -->
+	</site>
+	<site name="admin site" language="none">
+		<language ref="ru" default="true"/>
+		<config>xml/adm.xml</config>
+		<alias>admin.c3s.loc</alias>
+		<alias>admin.c3s-project.org</alias>
+	</site>
+	<languages>
+		<language>
+			<id>ru</id>
+			<name>русский</name>
+			<prefix>rus</prefix>
+			<suffix>ru</suffix>
+			<encoding>utf-8</encoding>
+		</language>
+		<language>
+			<id>en</id>
+			<name>english</name>
+			<prefix>eng</prefix>
+			<suffix>en</suffix>
+			<encoding>latin1</encoding>
+		</language>
+		<language>
+			<id>jp</id>
+			<name>japan</name>
+			<prefix>jp</prefix>
+			<suffix>jp</suffix>
+			<encoding>shift-jis</encoding>
+		</language>
+	</languages>
+</sites-info>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+	<modules>
+		<module pattern="/" class="c3s\web\connection\ConnectionModule" action="prepareConnection">
+			<param name="name" value="default"/>
+			<param name="driver" value="mysqli"/>
+			<param name="host" value="{DB_HOST}"/>
+			<param name="user" value="{DB_USER}"/>
+			<param name="password" value="{DB_PASSWORD}"/>
+			<param name="database" value="{DB_DATABASE}"/>
+		</module>
+		<module pattern="/" class="c3s\web\site\LanguageModule" action="processSuffix"/>
+		<module pattern="/" class="c3s\web\site\LanguageModule" action="getLanguageSwitch">
+			<param name="type" value="xslt"/>
+			<param name="tag" value="langs"/>
+			<param name="template" value="{XSL}langs.xsl"/>
+		</module>
+		<module pattern="*" class="c3s\web\nodes\xml\NodesModuleXMLUseLanguage" action="processNodes">
+			<param name="nodes" value="{XML}nodes.xml"/>
+			<!-- param name="cache" value="memcache"/-->
+			<!--
+			-->
+		</module>
+		<module pattern="/">
+			<module class="c3s\web\template\TemplateModule" action="setTemplate">
+				<param name="template" value="tpl/common.tpl.php"/>
+			</module>
+			<module class="c3s\web\functions\FunctionRegisterModule" action="register">
+				<param name="function" value="date"/>
+				<param name="function" value="strtotime"/>
+				<param name="function" value="rawurlencode"/>
+			</module>
+			<!-- модули пользователей находятся здесь -->
+			<module pattern="post/" class="c3s\web\modules\PrePostModule" action="prepost" is_last="true">
+				<param name="request" value="post"/>
+				<param name="storage" value="session"/>
+			</module>
+			<module pattern="systems/">
+				<param name="tag" value="view_ctx" inherit="true"/>
+				<!-- 
+				<param name="template" value="tpl/systems.tpl.php"/>
+				-->
+				<module pattern="settlements/" class="ed\systems\Settlements" action="getCanvas" is_last="true">
+					<param name="template" value="{XSL}systems/settlements.xsl"/>
+				</module> 
+				 
+				<module pattern="ajax/" class="c3s\web\template\TemplateModule" action="setTemplate">
+					<param name="template" value="tpl/json.tpl.php"/>
+					<param name="tag" value="json" inherit="true"/>
+					<module pattern="system-list/" class="ed\systems\Systems" action="getSystemsNearCoordiantes" is_last="true"/>
+					<module pattern="system-search/" class="ed\systems\Systems" action="getSystemByPatiallyName" is_last="true"/>
+					<module pattern="settlements-search/" class="ed\systems\Settlements" action="searchSettlements" is_last="true"/>
+				</module>
+			</module>
+			<!--
+				+Ajax
+			-->
+			<module pattern="ajax/" class="c3s\web\template\TemplateModule" action="setTemplate">
+				<param name="template" value="tpl/json.tpl.php"/>
+			</module>
+			<!--
+				+Ajax
+			-->
+			<!-- /модули пользователей находятся здесь -->
+		</module>
+		<module pattern="*" class="c3s\web\nodes\menu\MenuModule" action="getMenu" instance="main_menu">
+			<param name="tag" value="menu_main"/>
+			<param name="template" value="{XSL}menu.xsl"/>
+			<param name="type" value="xslt"/>
+		</module>
+
+		<module pattern="*" class="c3s\web\template\TemplateModule" action="showTemplate" is_last="true"/>
+	</modules>
+</config>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<validator>
+	<field name="ShipClassName">
+		<method name="required">
+			<message>Поле "Название" должно быть заполнено.</message>
+			<parameters>
+				<parameter name="trim" value="true"/>
+			</parameters>
+		</method>
+	</field>
+	<field name="ShipClassUniq">
+		<method name="required">
+			<message>Поле "ИД" должно быть заполнено.</message>
+			<parameters>
+				<parameter name="trim" value="true"/>
+			</parameters>
+		</method>
+		<method name="unique">
+			<message>Поле "ИД" должно быть уникально.</message>
+		</method>
+	</field>
+</validator>

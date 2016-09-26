@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<db_info>
+	<source name="default" package="ed.db" dsn="jdbc:mysql://localhost:3306/ed-tourney" driver="com.mysql.jdbc.Driver" user="root" password="root">
+		<include href="users.xml"/>
+		<include href="ships.xml"/>
+		<include href="tours.xml"/>
+		<include href="systems.xml"/>
+	</source>
+</db_info>

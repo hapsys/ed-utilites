@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<include>
+    <table name="systems">
+		<select name="ByPrimaryKey" single_object="true">
+			<column name="system_id"/>
+		</select>
+		<update name="ByPrimaryKey">
+			<column name="system_id"/>
+		</update>
+	</table>
+    <table name="stations">
+		<select name="ByPrimaryKey" single_object="true">
+			<column name="station_id"/>
+		</select>
+		<update name="ByPrimaryKey">
+			<column name="station_id"/>
+		</update>
+	</table>
+    <table name="factions">
+		<select name="ByPrimaryKey" single_object="true">
+			<column name="faction_id"/>
+		</select>
+		<select name="ByUniq" single_object="true">
+			<column name="faction_name_lower"/>
+		</select>
+		<update name="ByPrimaryKey">
+			<column name="faction_id"/>
+		</update>
+	</table>
+	
+    <table name="systems_hash">
+		<select name="ByPrimaryKey" single_object="true">
+			<column name="system_id"/>
+		</select>
+		<select name="ByName" single_object="true">
+			<column name="name_lower"/>
+		</select>
+		<query name="SystemsInBox">
+			<column name="x1"/>
+			<column name="x2"/>
+			<column name="y1"/>
+			<column name="y2"/>
+			<column name="z1"/>
+			<column name="z2"/>
+			<sql>
+				SELECT s.*
+				FROM systems_hash s
+				WHERE 1=1
+				AND s.x BETWEEN ? AND ?
+				AND s.y BETWEEN ? AND ?
+				AND s.z BETWEEN ? AND ?				
+			</sql>
+		</query>
+		
+		<query name="SystemsSearch">
+			<column name="search"/>
+			<sql>
+				SELECT s.system_id, IF(ISNULL(s.name_stations), s.name, s.name_stations) as name
+				FROM systems_hash s
+				WHERE s.name_lower LIKE ?
+				GROUP BY s.system_id
+				ORDER BY s.name
+				LIMIT 20
+			</sql>
+		</query>
+		
+	</table>
+	
+    <table name="settlements">
+		<select name="ByPrimaryKey" single_object="true">
+			<column name="settlement_id"/>
+		</select>
+		<update name="ByPrimaryKey">
+			<column name="settlement_id"/>
+		</update>
+		
+		<query name="SettlementsSearch" intruder="\ed\systems\filter\InFilter">
+			<sql>
+				SELECT t.title, st.*, s.name as system_name, s.x, s.y, s.z
+				FROM settlement_types t, settlements st, systems_hash s
+				WHERE 1=1
+				<where/>
+				AND t.settlement_type_id = st.settlement_type_id
+				AND st.system_id = s.system_id     
+			</sql>
+		</query>		
+	</table>
+	
+    <table name="settlement_types">
+    	<column name="group"/>
+		<select name="ByPrimaryKey" single_object="true">
+			<column name="settlement_type_id"/>
+		</select>
+		<select name="ByType" single_object="true">
+			<column name="type"/>
+		</select>
+		<select name="Sorted">
+			<sort>type</sort>
+		</select>
+		<update name="ByPrimaryKey">
+			<column name="settlement_type_id"/>
+		</update>
+	</table>
+	
+</include>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form method="post" action="/post/">
+    <group>
+        <label>Общая информация</label>
+    </group>
+    <field name="CmdrName" type="text" minlength="1">
+		<label>CMDR</label>
+	</field>
+    <group id='communication'>
+        <label>Информация для голосовой связи</label>
+    </group>
+	<info type="ok">
+		Информация успешно обновлена
+	</info>
+</form>

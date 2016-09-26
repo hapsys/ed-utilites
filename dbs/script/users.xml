@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<include>
+    <table name="users">
+        <column name="password2"/>
+		<select name="ByPrimaryKey" single_object="true">
+			<column name="user_id"/>
+		</select>
+		<select name="ByNetworkAndUid" single_object="true">
+			<column name="network"/>
+			<column name="uid"/>
+		</select>
+		<select name="ByCheckHash" single_object="true">
+			<column name="check_hash"/>
+		</select>
+		<update name="ByPrimaryKey">
+			<column name="user_id"/>
+		</update>
+		<query name="CmdrNameByUserId">
+		    <column name="cmdrName"/>
+		    <column name="userId"/>
+		    <sql>
+		        UPDATE users SET cmdr_name = ? WHERE user_id = ? LIMIT 1
+		    </sql>
+		</query>
+		<query name="Login" single_object="true">
+		    <column name="email"/>
+		    <column name="password"/>
+		    <sql>
+		        SELECT u.user_id, u.email as login, u.uid as password, 1 as store, check_hash
+		        FROM users u
+		        WHERE u.network = 'email'
+		        AND LOWER(u.email) = LOWER(?)
+		        AND u.uid = ?
+		        LIMIT 1
+		    </sql>
+		</query>
+		<query name="CheckEmail" single_object="true">
+		    <column name="email"/>
+		    <sql>
+		        SELECT count(u.user_id) as count
+		        FROM users u
+		        WHERE u.network = 'email'
+		        AND LOWER(u.email) = LOWER(?)
+		        LIMIT 1
+		    </sql>
+		</query>
+		<query name="ConcatUserRoles" single_object="true">
+			<column name="UserId"/>
+			<sql>
+			    SELECT GROUP_CONCAT(DISTINCT r.role ORDER BY r.role SEPARATOR '|') as user_roles
+			    FROM user_roles ur
+			    LEFT JOIN roles r ON ur.role_id = r.role_id
+			    WHERE ur.user_id = ?
+			    GROUP BY ur.user_id
+			</sql>
+		</query>
+		<query name="UserRoles">
+			<column name="UserId"/>
+			<sql>
+			    SELECT r.*
+			    FROM user_roles ur, roles r
+			    WHERE ur.user_id = ?
+			    AND ur.role_id = r.role_id
+			</sql>
+		</query>
+	</table>
+    <table name="user_key_values">
+		<delete name="ByKeys">
+			<column name="user_id"/>
+			<column name="user_key_id"/>
+		</delete>
+        <query name="ValuesByUserId">
+            <column name="userId" type="int"/>
+            <sql>
+                SELECT kv.*, k.*
+                FROM user_keys k
+                LEFT JOIN user_key_values kv ON kv.user_key_id = k.user_key_id AND kv.user_id = ?
+                ORDER BY k.sort
+            </sql>
+        </query>
+    </table>
+</include>
