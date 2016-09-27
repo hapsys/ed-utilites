@@ -1,0 +1,73 @@
+body {
+	margin: 10px;
+}
+
+.header {
+	height: 50px;
+	width: 100%;
+	border: 1px solid #eee;
+}
+
+.footer {
+	height: 50px;
+	width: 100%;
+	border: 1px solid #eee;
+	background: url("/images/powered-by.png") no-repeat right;
+
+}
+
+.logo {
+	float: left;
+	padding-left: 5px;
+}
+
+.login {
+	float: right;
+	padding: 10px 5px 10px 5px;
+}
+
+.login span {
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.user2 {
+	border-right: 2px solid black;
+}
+
+.menu {
+	vertical-align: top;
+	display: inline-block;
+	width: 300px;
+	margin-right: 50px;
+	padding-top: 15px;
+}
+
+.content {
+	vertical-align: top;
+	display: inline-block;
+	padding-bottom: 20px;
+}
+
+.form-class {
+	width: 600px;
+}
+
+.list-inline > li {
+	vertical-align: top;
+	padding-left: 10px;
+	padding-right: 50px;
+}
+
+.checkbox > .checkbox-inline {
+	padding-top: 0px;
+}
+
+.hidden {
+	display: none;
+}
+
+.form-error {
+	font-weight: normal;
+	color: #F46B3F;
+}

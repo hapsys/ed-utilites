@@ -24,7 +24,7 @@ $title = $path[count($path)-1]['title'];
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf8">
 <title>Турниры - <?php echo $title ?></title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css"/>
 <link rel="stylesheet" href="/css/chosen.css" type="text/css"/>
 <link rel="stylesheet" href="/css/bootstrap-chosen.css" type="text/css"/>
 <link rel="stylesheet" href="/css/sites.css" type="text/css"/>
@@ -34,8 +34,10 @@ $title = $path[count($path)-1]['title'];
 <script type="text/javascript" src="/js/json/jquery.json.min.js"></script>
 <script type="text/javascript" src="/js/chosen/chosen.jquery.min.js"></script>
 <script type="text/javascript" src="/js/chosen/ajax-chosen.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap/bootstrap.min.js"></script>
+<!-- 
 <script src="//rawgit.com/saribe/eModal/master/dist/eModal.min.js"></script>
+ -->
 <script type="text/javascript" src="/js/popup.js"></script>
 <script type="text/javascript" src="/js/proxy.js"></script>
 <script type="text/javascript" src="/js/store.js"></script>
