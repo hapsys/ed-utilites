@@ -10,8 +10,10 @@ use c3s\db\access\BaseAccess;
 
 use ed\db\beans\DBSettlementsBean;
 use ed\db\beans\DBSettlementsSearchBean;
+use ed\db\beans\DBCountBySystemAndNameBean;
 use ed\db\vectors\DBSettlementsVector;
 use ed\db\vectors\DBSettlementsSearchVector;
+use ed\db\vectors\DBCountBySystemAndNameVector;
 
 class DBSettlementsAccess extends BaseAccess {
 
@@ -153,6 +155,37 @@ class DBSettlementsAccess extends BaseAccess {
 				$bean->fillBean($res);
 				$ret[] = $bean;
 			}
+					
+		}
+			
+		return $ret;
+	}
+	
+	/**
+	 * @return DBCountBySystemAndNameBean
+	 */
+	public function getCountBySystemAndName($paramsystem_id, $paramname) {
+		$intruder = new SQLIntruder();
+		
+
+		$query = $intruder->getFullQuery();
+		if ($query == null) {
+			$record = $intruder->getRecordQuery();
+			$from = $intruder->getFromQuery();
+			$join = $intruder->getJoinQuery();
+			$where = $intruder->getWhereQuery();
+			$order = $intruder->getOrderQuery();
+			$limit = $intruder->getLimitQuery();
+			$query = " 				SELECT COUNT(st.settlement_id) AS count 				FROM settlements st 				WHERE st.system_id = ? 				AND LOWER(st.name) = ? 				LIMIT 1 			";
+		}
+
+		
+		$result =  $this->getConnection()->getTable($query , array($paramsystem_id, $paramname));
+		$ret = null;
+		if ($result) {
+				
+			$ret = new DBCountBySystemAndNameBean();
+			$ret->fillBean($result[0]);
 					
 		}
 			

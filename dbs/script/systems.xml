@@ -83,7 +83,20 @@
 				AND t.settlement_type_id = st.settlement_type_id
 				AND st.system_id = s.system_id     
 			</sql>
-		</query>		
+		</query>
+		
+		<query 	name="CountBySystemAndName" single_object="true">
+			<column name="system_id"/>
+			<column name="name"/>
+			<sql>
+				SELECT COUNT(st.settlement_id) AS count
+				FROM settlements st
+				WHERE st.system_id = ?
+				AND LOWER(st.name) = ?
+				LIMIT 1
+			</sql>
+		</query>
+				
 	</table>
 	
     <table name="settlement_types">

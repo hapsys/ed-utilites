@@ -63,6 +63,7 @@ $(function() {
 					var tr = $('<tr class="dynamic" data-system="'+s.settlement_id+'"><td>'+(id+1)+'</td><td>'+s.name+'</td><td>'+s.title+'</td><td><a href="https://eddb.io/system/'+s.system_id+'" target="_tab">'+s.system_name+'</a></td><td>'+s.planet+'</td><td>'+s.dest+'</td><td>'+s.sol_dest+'</td><td class="text-center"><button type="button" class="btn btn-danger btn-xs">mark as visited</button></td></tr>');
 					tr.appendTo(table);
 					$(tr).find("button").on("click", function() {
+						
 						if ($(this).hasClass('btn-danger')) {
 							$(this).removeClass('btn-danger');
 							$(this).addClass('btn-success');
@@ -188,7 +189,7 @@ $(function() {
 		$("#modalVisited").on("show.bs.modal", function() {
 			
 			var table = $("#modalVisited").find(".table-visited");
-			$(table).find("modal-dynamic").remove();
+			$(table).find(".modal-dynamic").remove();
 			
 			var vsorted = [];
 			var now = (new Date()).getTime();
