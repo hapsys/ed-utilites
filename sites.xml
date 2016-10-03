@@ -3,7 +3,6 @@
 	<site name="default site" language="suffix">
 		<config>config.xml</config>
 		<alias>edu.loc</alias>
-		<alias>ed-tourney.ddns.net</alias>
 		<alias>edu-c3s.rhcloud.com</alias>
 		<language ref="en"/>
 		<language ref="ru" default="true"/>

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<node pattern="" title="Главная страница">
+<node pattern="">
+	<title lang="ru">Улититы</title>
+	<title lang="en">Common utilites</title>
 	<node pattern="systems" redirect="settlements">
 		<title lang="ru">Системы</title>
 		<title lang="en">Systems</title>

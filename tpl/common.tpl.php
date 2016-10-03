@@ -23,7 +23,7 @@ $title = $path[count($path)-1]['title'];
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf8">
-<title>Турниры - <?php echo $title ?></title>
+<title>E:D - <?php echo $title ?></title>
 <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css"/>
 <link rel="stylesheet" href="/css/chosen.css" type="text/css"/>
 <link rel="stylesheet" href="/css/bootstrap-chosen.css" type="text/css"/>
