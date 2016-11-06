@@ -3,6 +3,7 @@ namespace proxy;
 
 use c3s\request\XRequest;
 use c3s\lib\http\HTTPClient;
+use c3s\lib\utils\xml\XMLUtils;
 
 class ProxyModule {
     public function getUrl() {
@@ -17,9 +18,12 @@ class ProxyModule {
             $content = isset($resp[1])?$resp[1]:'';
             
             $headers = explode("\n", $resp[0]);
-            foreach ($headers as $header) {
-                header($header);
-            }
+            //prn($headers);
+            //prn(XMLUtils::xml2out($content));
+            //die();
+            //foreach ($headers as $header) {
+             header($headers[0]);
+            //}
         } else {
             header("HTTP/1.1 404 Not Found");
         }
