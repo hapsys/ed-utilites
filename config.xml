@@ -61,6 +61,10 @@
 			<!--
 				+Ajax
 			-->
+			
+			<!-- Test Proxy -->
+			<module pattern="proxy/" class="proxy\ProxyModule" action="getUrl" is_last="true"/>
+			
 			<!-- /модули пользователей находятся здесь -->
 		</module>
 		<module pattern="*" class="c3s\web\nodes\menu\MenuModule" action="getMenu" instance="main_menu">
